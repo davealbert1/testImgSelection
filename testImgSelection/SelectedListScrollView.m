@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Publicis. All rights reserved.
 //
 
-#import "selectedListScrollView.h"
+#import "SelectedListScrollView.h"
 #define H_BUFFER 5
 #define DEFAULT_X (135.0f/2.0f)+H_BUFFER
 #define DEFAULT_Y (101.0f/2.0f)+H_BUFFER
 
-@implementation selectedListScrollView
+@implementation SelectedListScrollView
 
 - (id)initWithFrame:(CGRect)frame
 {

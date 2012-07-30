@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "fullListScrollView.h"
-#import "selectedListScrollView.h"
+#import "FullListScrollView.h"
+#import "SelectedListScrollView.h"
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *flowTableView;
 
-@property (strong, nonatomic) IBOutlet fullListScrollView *fullList;
-@property (strong, nonatomic) IBOutlet selectedListScrollView *selectedList;
+@property (strong, nonatomic) IBOutlet FullListScrollView *fullList;
+@property (strong, nonatomic) IBOutlet SelectedListScrollView *selectedList;
 
 @end

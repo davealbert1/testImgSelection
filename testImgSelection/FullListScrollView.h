@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "selectedListScrollView.h"
+#import "SelectedListScrollView.h"
 
-@interface fullListScrollView : UIScrollView
+@interface FullListScrollView : UIScrollView
 
-@property (nonatomic, strong) selectedListScrollView *selectedList;
+@property (nonatomic, strong) SelectedListScrollView *selectedList;
 
 @end

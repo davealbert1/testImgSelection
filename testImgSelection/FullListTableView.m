@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Publicis. All rights reserved.
 //
 
-#import "fullListTableView.h"
+#import "FullListTableView.h"
 
-@implementation fullListTableView
+@implementation FullListTableView
 
 @synthesize dataList;
 

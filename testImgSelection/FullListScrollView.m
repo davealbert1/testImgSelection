@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Publicis. All rights reserved.
 //
 
-#import "fullListScrollView.h"
+#import "FullListScrollView.h"
 #define H_BUFFER 20
 
-@implementation fullListScrollView
+@implementation FullListScrollView
 
 @synthesize selectedList;
 
