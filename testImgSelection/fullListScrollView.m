@@ -11,8 +11,9 @@
 
 @implementation fullListScrollView
 
-- (id)initWithFrame:(CGRect)frame
-{
+@synthesize selectedList;
+
+- (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
     // Initialization code
@@ -30,47 +31,42 @@
   return self;
 }
 
-
 - (void)commonInit {
-  // Thumbnails are 135x101  
-  CGPoint lastButton = CGPointMake((135.0f/2.0f)+H_BUFFER, (101.0f/2.0f)+H_BUFFER + 45.0f);
-  
+  // Thumbnails are 135x101
+  CGPoint buttonPos = CGPointMake((135.0f/2.0f)+H_BUFFER, (101.0f/2.0f)+H_BUFFER + 45.0f);
+
   for (int i=0; i<=37; i++) {
     if ((i > 0) && (i % 3 == 0)) {
-      NSLog(@"%d",i);
-      lastButton = CGPointMake((135.0f/2.0f)+H_BUFFER, lastButton.y + 101.0f + H_BUFFER);
+      buttonPos = CGPointMake((135.0f/2.0f)+H_BUFFER, buttonPos.y + 101.0f + H_BUFFER);
     }
-    lastButton = [self addImageButton:i withLastButton:lastButton];        
+    buttonPos = [self addImageButton:i withLastButton:buttonPos];
   }
-  
-  [self setContentSize:CGSizeMake(0.0f, lastButton.y+101.0f)];
+
+  [self setContentSize:CGSizeMake(0.0f, buttonPos.y+101.0f)];
 }
 
 #pragma mark - Supporting Methods
 
-- (CGPoint)addImageButton:(int)tag withLastButton:(CGPoint)lastButton{
-  
-
+- (CGPoint)addImageButton:(int)tag withLastButton:(CGPoint)buttonPos {
   UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
   UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d.png",tag] ofType:nil]]];
   [btn setFrame:img.frame];
   [btn addSubview:img];
   [btn setTag:tag];
   [btn addTarget:self action:@selector(addSlide:) forControlEvents:UIControlEventTouchUpInside];
-  [btn setCenter:lastButton];
+  [btn setCenter:buttonPos];
   [self addSubview:btn];
-  
-  lastButton = CGPointMake(lastButton.x +(135.0f)+H_BUFFER, lastButton.y);
-  return lastButton;
+
+  buttonPos = CGPointMake(buttonPos.x +(135.0f)+H_BUFFER, buttonPos.y);
+  return buttonPos;
 }
 
 #pragma mark - User Interaction Methods
 
 -(IBAction)addSlide:(UIButton *)sender {
-  NSLog(@"%d",sender.tag);
-  UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"used.png" ofType:nil]]];
-  [sender addSubview:img];
-
+//  UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"used.png" ofType:nil]]];
+//  [sender addSubview:img];
+  [self.selectedList addToList:sender.tag];
 }
 
 @end

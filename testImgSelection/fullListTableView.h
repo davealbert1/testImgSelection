@@ -10,7 +10,6 @@
 
 @interface fullListTableView : UITableView <UITableViewDataSource, UITableViewDelegate>
 
-
 @property (nonatomic, strong) NSMutableArray *dataList;
 
 @end

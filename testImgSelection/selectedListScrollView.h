@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface selectedListScrollView : UIScrollView
+@interface selectedListScrollView : UIScrollView {
+  NSMutableArray *selectedDataList;
+  CGPoint buttonPos;
+}
+
+- (void)addToList:(int)tag;
 
 @end
