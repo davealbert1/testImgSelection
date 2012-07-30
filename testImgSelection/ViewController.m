@@ -17,24 +17,22 @@
 @synthesize flowTableView;
 @synthesize selectedList;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)viewDidLoad {
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidUnload
-{
-    [self setFullList:nil];
-    [self setFlowTableView:nil];
-    [self setSelectedList:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+- (void)viewDidUnload {
+  [self setFullList:nil];
+  [self setFlowTableView:nil];
+  [self setSelectedList:nil];
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  return YES;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+  return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+          interfaceOrientation == UIInterfaceOrientationLandscapeRight );
 }
 
 @end
