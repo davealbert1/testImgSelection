@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+@synthesize fullList;
+@synthesize flowTableView;
+@synthesize selectedList;
 
 - (void)viewDidLoad
 {
@@ -22,6 +25,9 @@
 
 - (void)viewDidUnload
 {
+    [self setFullList:nil];
+    [self setFlowTableView:nil];
+    [self setSelectedList:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

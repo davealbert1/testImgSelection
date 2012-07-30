@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIScrollView *fullList;
+@property (strong, nonatomic) IBOutlet UITableView *flowTableView;
+@property (strong, nonatomic) IBOutlet UIScrollView *selectedList;
 
 @end
