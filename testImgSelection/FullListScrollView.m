@@ -68,8 +68,8 @@
 #pragma mark - User Interaction Methods
 
 -(IBAction)addSlide:(UIButton *)sender {
-//  UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"used.png" ofType:nil]]];
-//  [sender addSubview:img];
+  //  UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"used.png" ofType:nil]]];
+  //  [sender addSubview:img];
   if (flowHasBeenSelected) {
     [self.selectedList addToList:sender.tag];
   } else {

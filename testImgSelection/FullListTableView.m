@@ -42,7 +42,7 @@
 
   flowSlides = [[NSMutableArray alloc] initWithObjects:
                 [[NSMutableArray alloc] initWithObjects:@"Flow1 Slide1",@"Flow1 Slide2", nil],
-                [[NSMutableArray alloc] initWithObjects:@"Flow2 SlideA",@"Flow2 SlideB", nil],                
+                [[NSMutableArray alloc] initWithObjects:@"Flow2 SlideA",@"Flow2 SlideB", nil],
                 nil];
 }
 

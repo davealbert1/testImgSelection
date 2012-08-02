@@ -44,7 +44,7 @@
     if (sender.tag != i) {
       [tempArray addObject:[selectedDataList objectAtIndex:i]];
       [[tempArray objectAtIndex:[tempArray count]-1] setTag:[tempArray count]];
-    }    
+    }
   }
   selectedDataList = tempArray;
   [self redrawSlides];
@@ -98,8 +98,29 @@
   [selectedDataList addObject:[self imageWithTag:tag]];
 }
 
+- (void)saveList{
+
+}
+
+- (void)clearList {
+  for (UIButton *selBut in self.subviews) {
+    if ([selBut isKindOfClass:[UIButton class]]) {
+      [selBut removeFromSuperview];
+    }
+  }
+
+  selectedDataList = [[NSMutableArray alloc] init];
+  buttonPos = CGPointMake(DEFAULT_X, DEFAULT_Y);
+}
+
 - (void)flowSelected:(NSMutableArray *)flowList {
-  flowHasBeenSelected = YES;
+  if (!flowHasBeenSelected) {
+    flowHasBeenSelected = YES;
+  } else {
+    [self saveList];
+    [self clearList];
+  }
+
   NSLog(@"%@",flowList);
 }
 
