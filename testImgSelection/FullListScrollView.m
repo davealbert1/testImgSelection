@@ -95,6 +95,15 @@
   if (flowHasBeenSelected) {
     if (!isMovedAside) {
       [self.selectedList addToList:sender.tag];
+      [UIView animateWithDuration:0.5 animations:^{
+        [sender setAlpha:0.5f];
+      } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+          [sender setAlpha:1.0f];
+        } completion:^(BOOL finished) {
+
+        }];
+      }];
     }
   } else {
     [[[UIAlertView alloc] initWithTitle:@"Select Flow" message:@"Please select a flow" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];

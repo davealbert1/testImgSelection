@@ -73,10 +73,18 @@
   }
 }
 
+
 - (IBAction)moveSlideFinish:(UIButton *)sender{
   if (fullListHidden) {
     [sender removeTarget:self action:@selector(wasDragged:withEvent:) forControlEvents:UIControlEventTouchDragInside];
-    NSLog(@"%d",((int)sender.center.x / 135) +(((int)sender.center.y / 105)) *5);
+    int moveNum = (((int)sender.center.x)/ 135) +((((int)sender.center.y) / 105)) *5;
+    NSObject *obj = [selectedDataList objectAtIndex:sender.tag];
+    [selectedDataList removeObjectAtIndex:sender.tag];
+    if (moveNum > [selectedDataList count]) {
+      moveNum = [selectedDataList count];
+    }
+    [selectedDataList insertObject:obj atIndex:moveNum];
+
     [self redrawSlides];
   } else {
     //shh
@@ -120,6 +128,7 @@
   [self setContentSize:CGSizeMake(0.0f, buttonPos.y + 100.0f)];
   [btn setTag:[selectedDataList count]];
   [btn addTarget:self action:@selector(removeSlide:) forControlEvents:UIControlEventTouchUpInside];
+  [btn addTarget:self action:@selector(removeSlide:) forControlEvents:UIControlEventTouchUpOutside];
   [btn addTarget:self action:@selector(moveSlideStart:) forControlEvents:UIControlEventTouchDown];
   [btn addTarget:self action:@selector(moveSlideFinish:) forControlEvents:UIControlEventTouchUpInside];
   [self addSubview:btn];
