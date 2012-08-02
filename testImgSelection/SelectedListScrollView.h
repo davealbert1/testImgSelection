@@ -11,8 +11,10 @@
 @interface SelectedListScrollView : UIScrollView {
   NSMutableArray *selectedDataList;
   CGPoint buttonPos;
+  BOOL flowHasBeenSelected;
 }
 
 - (void)addToList:(int)tag;
+- (void)flowSelected:(NSMutableArray *)flowList;
 
 @end

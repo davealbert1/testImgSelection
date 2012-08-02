@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SelectedListScrollView.h"
 
-@interface FullListScrollView : UIScrollView
+@interface FullListScrollView : UIScrollView {
+  BOOL flowHasBeenSelected;
+}
 
 @property (nonatomic, strong) SelectedListScrollView *selectedList;
 
+- (void)flowSelected;
 @end

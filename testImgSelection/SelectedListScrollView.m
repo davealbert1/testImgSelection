@@ -98,4 +98,9 @@
   [selectedDataList addObject:[self imageWithTag:tag]];
 }
 
+- (void)flowSelected:(NSMutableArray *)flowList {
+  flowHasBeenSelected = YES;
+  NSLog(@"%@",flowList);
+}
+
 @end

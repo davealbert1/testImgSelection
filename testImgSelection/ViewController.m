@@ -21,6 +21,8 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   [fullList setSelectedList:self.selectedList];
+  [flowTableView setSLsv:selectedList];
+  [flowTableView setFLsv:fullList];
 }
 
 - (void)viewDidUnload {

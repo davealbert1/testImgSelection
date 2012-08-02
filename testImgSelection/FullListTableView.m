@@ -11,6 +11,8 @@
 @implementation FullListTableView
 
 @synthesize dataList;
+@synthesize sLsv;
+@synthesize fLsv;
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -37,6 +39,11 @@
               nil];
   [self setDataSource:self];
   [self setDelegate:self];
+
+  flowSlides = [[NSMutableArray alloc] initWithObjects:
+                [[NSMutableArray alloc] initWithObjects:@"Flow1 Slide1",@"Flow1 Slide2", nil],
+                [[NSMutableArray alloc] initWithObjects:@"Flow2 SlideA",@"Flow2 SlideB", nil],                
+                nil];
 }
 
 #pragma mark - Table view data source
@@ -82,13 +89,8 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  // Navigation logic may go here. Create and push another view controller.
-  /*
-   <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-   // ...
-   // Pass the selected object to the new view controller.
-   [self.navigationController pushViewController:detailViewController animated:YES];
-   */
+  [self.sLsv flowSelected:[flowSlides objectAtIndex:indexPath.row]];
+  [self.fLsv flowSelected];
 }
 
 
