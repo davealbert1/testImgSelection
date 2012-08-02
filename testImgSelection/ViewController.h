@@ -17,5 +17,8 @@
 @property (strong, nonatomic) IBOutlet FullListTableView *flowTableView;
 @property (strong, nonatomic) IBOutlet FullListScrollView *fullList;
 @property (strong, nonatomic) IBOutlet SelectedListScrollView *selectedList;
+@property (strong, nonatomic) IBOutlet UIButton *moveAsideButton;
+
+- (IBAction)hideFullList:(id)sender;
 
 @end

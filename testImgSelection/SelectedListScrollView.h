@@ -14,6 +14,9 @@
   BOOL flowHasBeenSelected;
 }
 
+@property (nonatomic, assign) BOOL fullListHidden;
+
+- (void)redrawSlides;
 - (void)addToList:(int)tag;
 - (void)flowSelected:(NSMutableDictionary *)flowList;
 

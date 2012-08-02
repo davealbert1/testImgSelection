@@ -65,6 +65,26 @@
   flowHasBeenSelected = YES;
 }
 
+- (void)hideFullList {
+  [UIView animateWithDuration:0.5f animations:^{
+    [self.superview setCenter:CGPointMake(self.superview.center.x + (self.superview.frame.size.width - 40.0f), self.superview.center.y)];
+    [self.selectedList.superview setFrame:CGRectMake(self.selectedList.superview.frame.origin.x,
+                                                     self.selectedList.superview.frame.origin.y,
+                                                     self.selectedList.superview.frame.size.width + (self.superview.frame.size.width - 40.0f),
+                                                     self.selectedList.superview.frame.size.height)];
+  }];
+}
+
+- (void)showFullList {
+  [UIView animateWithDuration:0.5f animations:^{
+    [self.superview setCenter:CGPointMake(self.superview.center.x - (self.superview.frame.size.width - 40.0f), self.superview.center.y)];
+    [self.selectedList.superview setFrame:CGRectMake(self.selectedList.superview.frame.origin.x,
+                                                     self.selectedList.superview.frame.origin.y,
+                                                     self.selectedList.superview.frame.size.width - (self.superview.frame.size.width - 40.0f),
+                                                     self.selectedList.superview.frame.size.height)];
+  }];
+}
+
 #pragma mark - User Interaction Methods
 
 -(IBAction)addSlide:(UIButton *)sender {

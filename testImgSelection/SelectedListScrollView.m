@@ -13,6 +13,9 @@
 
 @implementation SelectedListScrollView
 
+@synthesize fullListHidden;
+
+
 - (id)initWithFrame:(CGRect)frame
 {
   self = [super initWithFrame:frame];

@@ -11,9 +11,13 @@
 
 @interface FullListScrollView : UIScrollView {
   BOOL flowHasBeenSelected;
+  BOOL isMovedAside;
 }
 
 @property (nonatomic, strong) SelectedListScrollView *selectedList;
 
 - (void)flowSelected;
+- (void)hideFullList;
+- (void)showFullList;
+
 @end
