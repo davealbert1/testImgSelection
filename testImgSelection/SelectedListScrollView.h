@@ -15,6 +15,6 @@
 }
 
 - (void)addToList:(int)tag;
-- (void)flowSelected:(NSMutableArray *)flowList;
+- (void)flowSelected:(NSMutableDictionary *)flowList;
 
 @end

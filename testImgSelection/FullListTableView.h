@@ -11,9 +11,7 @@
 #import "FullListScrollView.h"
 
 
-@interface FullListTableView : UITableView <UITableViewDataSource, UITableViewDelegate> {
-  NSMutableArray *flowSlides;
-}
+@interface FullListTableView : UITableView <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataList;
 @property (nonatomic, strong) SelectedListScrollView *sLsv;

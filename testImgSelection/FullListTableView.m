@@ -34,16 +34,12 @@
 
 - (void)commonInit {
   dataList = [[NSMutableArray alloc] initWithObjects:
-              @"Flow 1",
-              @"Flow 2",
+              [[NSDictionary alloc]initWithObjectsAndKeys:@"Flow 1",@"name",[[NSMutableArray alloc] init], @"slides", nil],
+              [[NSDictionary alloc]initWithObjectsAndKeys:@"Flow 2",@"name",[[NSMutableArray alloc] init], @"slides", nil],
               nil];
   [self setDataSource:self];
   [self setDelegate:self];
 
-  flowSlides = [[NSMutableArray alloc] initWithObjects:
-                [[NSMutableArray alloc] initWithObjects:@"Flow1 Slide1",@"Flow1 Slide2", nil],
-                [[NSMutableArray alloc] initWithObjects:@"Flow2 SlideA",@"Flow2 SlideB", nil],
-                nil];
 }
 
 #pragma mark - Table view data source
@@ -69,7 +65,7 @@
   }
 
   // Configure the cell...
-  [[cell textLabel] setText:[dataList objectAtIndex:indexPath.row]];
+  [[cell textLabel] setText:[[dataList objectAtIndex:indexPath.row] objectForKey:@"name"]];
 
   return cell;
 }
@@ -89,7 +85,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.sLsv flowSelected:[flowSlides objectAtIndex:indexPath.row]];
+  [self.sLsv flowSelected:[dataList objectAtIndex:indexPath.row]];
   [self.fLsv flowSelected];
 }
 

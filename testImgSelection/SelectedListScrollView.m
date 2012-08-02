@@ -46,7 +46,12 @@
       [[tempArray objectAtIndex:[tempArray count]-1] setTag:[tempArray count]];
     }
   }
-  selectedDataList = tempArray;
+  
+  [selectedDataList removeAllObjects];  
+  for (NSObject *obj in tempArray) {
+    [selectedDataList addObject:obj];
+  }  
+
   [self redrawSlides];
 }
 
@@ -69,6 +74,8 @@
     }
     [self addSubview:btn];
   }
+  
+   [self setContentSize:CGSizeMake(0.0f, buttonPos.y + 100.0f)];
 }
 
 - (UIButton *)imageWithTag:(int)tag {
@@ -109,11 +116,10 @@
     }
   }
 
-  selectedDataList = [[NSMutableArray alloc] init];
   buttonPos = CGPointMake(DEFAULT_X, DEFAULT_Y);
 }
 
-- (void)flowSelected:(NSMutableArray *)flowList {
+- (void)flowSelected:(NSMutableDictionary *)flowList {
   if (!flowHasBeenSelected) {
     flowHasBeenSelected = YES;
   } else {
@@ -121,7 +127,8 @@
     [self clearList];
   }
 
-  NSLog(@"%@",flowList);
+  selectedDataList = [flowList objectForKey:@"slides"];
+  [self redrawSlides];  
 }
 
 @end
