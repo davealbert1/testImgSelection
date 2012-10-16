@@ -15,6 +15,7 @@
 
 @synthesize fullListHidden;
 
+#pragma mark - Initialization Methods
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -40,32 +41,38 @@
   buttonPos = CGPointMake(DEFAULT_X, DEFAULT_Y);
 }
 
+#pragma mark - User Interaction Methods
+
 - (IBAction)removeSlide:(UIButton *)sender{
   if (fullListHidden) {
 
   } else {
-    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-    int count = [selectedDataList count];
-    for (int i=0; i<count; i++) {
-      if (sender.tag != i) {
-        [tempArray addObject:[selectedDataList objectAtIndex:i]];
-        [[tempArray objectAtIndex:[tempArray count]-1] setTag:[tempArray count]];
+    [UIView animateWithDuration:0.25f animations:^{
+      [sender setAlpha:0.0f];
+    } completion:^(BOOL finished) {
+      NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+      int count = [selectedDataList count];
+      for (int i=0; i<count; i++) {
+        if (sender.tag != i) {
+          [tempArray addObject:[selectedDataList objectAtIndex:i]];
+          [[tempArray objectAtIndex:[tempArray count]-1] setTag:[tempArray count]];
+        }
       }
-    }
 
-    [selectedDataList removeAllObjects];
-    for (NSObject *obj in tempArray) {
-      [selectedDataList addObject:obj];
-    }
+      [selectedDataList removeAllObjects];
+      for (NSObject *obj in tempArray) {
+        [selectedDataList addObject:obj];
+      }
 
-    [self redrawSlides];
+      [self redrawSlides];
+    }];
   }
 }
 
 - (IBAction)moveSlideStart:(UIButton *)sender{
   if (fullListHidden) {
     NSLog(@"moveing");
-    [sender addTarget:self action:@selector(wasDragged:withEvent:) 
+    [sender addTarget:self action:@selector(wasDragged:withEvent:)
      forControlEvents:UIControlEventTouchDragInside];
     [self bringSubviewToFront:sender];
   } else {
@@ -94,6 +101,11 @@
 #pragma mark - Supporting Methods
 
 - (void)redrawSlides {
+  [self setAlpha:0.75f];
+  [UIView animateWithDuration:0.5f animations:^{
+    [self setAlpha:1.0f];
+  }];
+  
   for (UIButton *btn in self.subviews) {
     if ([btn isKindOfClass:[UIButton class]]) {
       [btn removeFromSuperview];
@@ -126,12 +138,22 @@
   }
 
   [self setContentSize:CGSizeMake(0.0f, buttonPos.y + 100.0f)];
+  if (buttonPos.y >650.0f) {
+    [self setContentOffset:CGPointMake(0.0f, buttonPos.y - 400.0f)];
+  }
+
+  
   [btn setTag:[selectedDataList count]];
   [btn addTarget:self action:@selector(removeSlide:) forControlEvents:UIControlEventTouchUpInside];
-  [btn addTarget:self action:@selector(removeSlide:) forControlEvents:UIControlEventTouchUpOutside];
   [btn addTarget:self action:@selector(moveSlideStart:) forControlEvents:UIControlEventTouchDown];
   [btn addTarget:self action:@selector(moveSlideFinish:) forControlEvents:UIControlEventTouchUpInside];
+    
+  [btn setAlpha:0.5];
   [self addSubview:btn];
+  [UIView animateWithDuration:0.5f animations:^{
+    [btn setAlpha:1.0f];
+  }];
+  
   return btn;
 }
 
@@ -174,13 +196,13 @@
 {
 	// get the touch
 	UITouch *touch = [[event touchesForView:button] anyObject];
-  
+
 	// get delta
 	CGPoint previousLocation = [touch previousLocationInView:button];
 	CGPoint location = [touch locationInView:button];
 	CGFloat delta_x = location.x - previousLocation.x;
 	CGFloat delta_y = location.y - previousLocation.y;
-  
+
 	// move button
 	button.center = CGPointMake(button.center.x + delta_x,
                               button.center.y + delta_y);

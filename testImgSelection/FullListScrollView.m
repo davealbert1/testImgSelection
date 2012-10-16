@@ -67,6 +67,7 @@
 
 - (void)hideFullList {
   isMovedAside = YES;
+  [self setScrollEnabled:NO];
   [UIView animateWithDuration:0.5f animations:^{
     [self.superview setCenter:CGPointMake(self.superview.center.x + (self.superview.frame.size.width - 40.0f), self.superview.center.y)];
     [self.selectedList.superview setFrame:CGRectMake(self.selectedList.superview.frame.origin.x,
@@ -78,6 +79,7 @@
 
 - (void)showFullList {
   isMovedAside = NO;
+  [self setScrollEnabled:YES];
   [UIView animateWithDuration:0.5f animations:^{
     [self.superview setCenter:CGPointMake(self.superview.center.x - (self.superview.frame.size.width - 40.0f), self.superview.center.y)];
     [self.selectedList.superview setFrame:CGRectMake(self.selectedList.superview.frame.origin.x,
@@ -95,10 +97,10 @@
   if (flowHasBeenSelected) {
     if (!isMovedAside) {
       [self.selectedList addToList:sender.tag];
-      [UIView animateWithDuration:0.5 animations:^{
+      [UIView animateWithDuration:0.25f animations:^{
         [sender setAlpha:0.5f];
       } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.25f animations:^{
           [sender setAlpha:1.0f];
         } completion:^(BOOL finished) {
 

@@ -57,6 +57,7 @@
 		50E7448015C675D800F0462D /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 50E7447715C675D800F0462D /* 8.png */; };
 		50E7448215C677C400F0462D /* used.png in Resources */ = {isa = PBXBuildFile; fileRef = 50E7448115C677C400F0462D /* used.png */; };
 		50E7449715C6DC6C00F0462D /* FullListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E7449615C6DC6C00F0462D /* FullListScrollView.m */; };
+		50FEC53715D8E06100FA96B7 /* Icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 50FEC53615D8E06100FA96B7 /* Icon144.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		50E7448115C677C400F0462D /* used.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = used.png; sourceTree = "<group>"; };
 		50E7449515C6DC2700F0462D /* SelectedListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedListScrollView.h; sourceTree = "<group>"; };
 		50E7449615C6DC6C00F0462D /* FullListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullListScrollView.m; sourceTree = "<group>"; };
+		50FEC53615D8E06100FA96B7 /* Icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon144.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		50E743A815C6649000F0462D = {
 			isa = PBXGroup;
 			children = (
+				50FEC53615D8E06100FA96B7 /* Icon144.png */,
 				50E743BD15C6649100F0462D /* testImgSelection */,
 				50E743B615C6649100F0462D /* Frameworks */,
 				50E743B415C6649100F0462D /* Products */,
@@ -386,6 +389,7 @@
 				50E7447F15C675D800F0462D /* 7.png in Resources */,
 				50E7448015C675D800F0462D /* 8.png in Resources */,
 				50E7448215C677C400F0462D /* used.png in Resources */,
+				50FEC53715D8E06100FA96B7 /* Icon144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +437,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dave Albert (K5EYJ7X9SC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dave Albert (K5EYJ7X9SC)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -448,6 +453,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "E870E8EF-B8EC-4921-96B4-CE4937B10228";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E870E8EF-B8EC-4921-96B4-CE4937B10228";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -459,7 +466,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dave Albert (K5EYJ7X9SC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dave Albert (K5EYJ7X9SC)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -468,6 +476,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "E870E8EF-B8EC-4921-96B4-CE4937B10228";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E870E8EF-B8EC-4921-96B4-CE4937B10228";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
